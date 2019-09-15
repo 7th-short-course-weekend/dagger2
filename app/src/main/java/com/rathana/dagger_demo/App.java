@@ -1,4 +1,4 @@
-package com.rathana.dagger_demo.di;
+package com.rathana.dagger_demo;
 
 import android.app.Application;
 
@@ -18,6 +18,7 @@ public class App extends Application {
                 .appModule(new AppModule(this))
                 .build();
 
+        component.inject(this);
     }
 
     public AppComponent getComponent() {

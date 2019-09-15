@@ -11,35 +11,23 @@ import com.rathana.dagger_demo.di.component.DaggerActivityComponent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-public class MainActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity {
 
-//    @Inject
-//    @Named("BaseUrl")
-//    String baseUrl;
-//    @Inject Person person;
-
-    @Inject
-    @Named("Dara")
+    @Inject @Named("Dara")
     Person person;
 
-    @Inject @Named("BaseUrl")
-    String baseUrl;
-
-    private ActivityComponent component;
+    final static  String TAG= LoginActivity.class.getSimpleName();
 
     @Override
     protected void onInject(ActivityComponent activityComponent) {
         activityComponent.inject(this);
     }
 
-    static final String TAG= MainActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
-        Log.e(TAG, "onCreate: BaseUrl "+baseUrl );
-        Log.e(TAG, "onCreate: Person "+person.toString());
-
+        Log.e(TAG, "onCreate: Person"+person);
     }
 }
